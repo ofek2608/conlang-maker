@@ -70,7 +70,6 @@ type LangTags = Array<string>;
 //////////////
 
 type LangKeyboard = {
-  //TODO implement
   keys: Map<number, LangKey>; // The number should be the key code (place in the layout)
   layout: Array<KeyboardPosition>; // The places of the keys in the layout (row, column) starting from the top left corner (id is the key code)
 };
