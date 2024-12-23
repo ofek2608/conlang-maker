@@ -17,8 +17,13 @@ type SvgRepr = {
   elements: Array<string>; // All elements of the SVG
 }
 
+type LangLetter = {
+  uncode_letter: string; // The closest unicode character to the letter (for search and copy-paste)
+  svg: SvgRepr;
+};
+
 type LangAlphabet = {
-  letters: Map<string, SvgRepr>; // The string should be the closest unicode representation from the SvgRepr (allowing copy/pasting)
+  letters: Array<LangLetter>;
 };
 
 ////////////////
@@ -66,4 +71,22 @@ type LangTags = Array<string>;
 
 type LangKeyboard = {
   //TODO implement
+  keys: Map<number, LangKey>; // The number should be the key code (place in the layout)
+  layout: Array<KeyboardPosition>; // The places of the keys in the layout (row, column) starting from the top left corner (id is the key code)
+};
+
+type KeyboardPosition = {
+  row: number;
+  column: number;
+};
+
+type LangKey = {
+  key: LangLetter;
+  // The modifier is the key that should be pressed with this key to get a different key
+  // This is a map of modifiers to allow for multiple modifiers to be pressed at the same time
+  modifiers: Map<Array<LangModifier>, LangLetter>;
+};
+
+type LangModifier = {
+  key: LangLetter;
 };
