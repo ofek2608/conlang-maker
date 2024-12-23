@@ -1,6 +1,6 @@
 
 
-type LangData = {
+export type LangData = {
   displayName: string;
   nativeName: string;
   alphabet: LangAlphabet;
@@ -12,17 +12,17 @@ type LangData = {
 // Alphabet //
 //////////////
 
-type SvgRepr = {
+export type SvgRepr = {
   viewBox: string; // "corner-up-left-x corner-up-left-y size-x size-y"
   elements: Array<string>; // All elements of the SVG
 }
 
-type LangLetter = {
+export type LangLetter = {
   uncode_letter: string; // The closest unicode character to the letter (for search and copy-paste)
   svg: SvgRepr;
 };
 
-type LangAlphabet = {
+export type LangAlphabet = {
   letters: Array<LangLetter>;
 };
 
@@ -30,25 +30,25 @@ type LangAlphabet = {
 // Dictionary //
 ////////////////
 
-type LangDictionary = {
+export type LangDictionary = {
   baseWords: Array<LangBaseWord>;
   manipulations: Map<string,LangWordManip>;
 };
 
-type LangWord = LangBaseWord | LangEmergentWord;
+export type LangWord = LangBaseWord | LangEmergentWord;
 
-type LangBaseWord = {
+export type LangBaseWord = {
   word: string;
   definition: string;
   tags: LangTags;
 };
 
-type LangEmergentWord = LangBaseWord & {
+export type LangEmergentWord = LangBaseWord & {
   parent: LangWord;
   manipulationRule: string;
 };
 
-type LangWordManip = {
+export type LangWordManip = {
   requiredTags: LangTags;
   blacklistedTags: LangTags;
   addTags: LangTags;
@@ -57,7 +57,7 @@ type LangWordManip = {
   manipulateDefinition: LangStrManip;
 };
 
-type LangStrManip = {
+export type LangStrManip = {
   //TODO use custom regular expression and replacement, so this process will be reversible.
   pattern: RegExp;
   replacement: string;

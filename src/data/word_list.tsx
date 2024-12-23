@@ -1,3 +1,5 @@
+import { LangDictionary, LangWord, LangWordManip, LangEmergentWord, LangStrManip } from './lang_data';
+
 let _dict: LangDictionary | null = null;
 let _limit: number = 10000;
 let _words: Array<LangWord> = [];
