@@ -12,8 +12,13 @@ type LangData = {
 // Alphabet //
 //////////////
 
+type SvgRepr = {
+  viewBox: string; // "corner-up-left-x corner-up-left-y size-x size-y"
+  elements: Array<string>; // All elements of the SVG
+}
+
 type LangAlphabet = {
-  //TODO implement
+  letters: Map<string, SvgRepr>; // The string should be the closest unicode representation from the SvgRepr (allowing copy/pasting)
 };
 
 ////////////////
@@ -62,4 +67,3 @@ type LangTags = Array<string>;
 type LangKeyboard = {
   //TODO implement
 };
-

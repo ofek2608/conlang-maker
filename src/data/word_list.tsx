@@ -115,3 +115,14 @@ function applyStrManipulation(str: string, manip: LangStrManip): string | null {
   }
   return null;
 }
+
+const ZWJ = "\u200D"; // Force combining characters on left and right
+const ZWNJ = "\u200C"; // Prevent combining characters on left and right
+
+export function join(...args: Array<string>): string {
+  return args.join(ZWJ);
+}
+
+export function preventJoin(...args: Array<string>): string {
+  return args.join(ZWNJ);
+}
